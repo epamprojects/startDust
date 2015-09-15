@@ -1,7 +1,7 @@
 var gulp    = require('gulp'),
-    connect = require('gulp-connect'),
-    connectLivereload = require('connect-livereload'),
-    concat = require('gulp-concat');
+    connect = require('gulp-connect');
+
+
 
 
 var Vendor = './src';
