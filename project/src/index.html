@@ -3,14 +3,42 @@
 <head lang="en">
     <meta charset="UTF-8">
     <!--libs-->
-    <script src="../bower_components/dustjs/dist/dust-full-0.3.0.js"></script>
+    <script src="../bower_components/dustjs-linkedin/dist/dust-full.js"></script>
+    <script src="../bower_components/dustjs-helpers/dist/dust-helpers.js"></script>
     <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="./style/style.css"/>
 </head>
 <body>
 
     <!--dust template-->
     <script id="dust-tmpl" type="dust/tmpl">
-        <div>{name}</div>
+        <div class="pd-raiting-statistic">
+        	<div class="pd-raiting-statistic_title">{title}</div>
+	          <div class="pd-raiting-statistic_content">
+
+             	<!--pd-raiting-statistic_scale-evaluation-->
+              {#scaleEvaluation generalCountVoted=generalCountVoted}
+                <div class="pd-raiting-statistic_scale-evaluation">
+                  <div class="pd-raiting-statistic_scale-evaluation_star-count-wrapper">
+                    <div class="pd-raiting-statistic_scale-evaluation_star">{starCount}</div>
+                  </div>
+
+
+                  <div class="pd-raiting-statistic_scale-evaluation_graph-wrapper">
+                    <div class="pd-raiting-statistic_scale-evaluation_graph"
+                        style="width:
+                         {@math key="{countVoted}" method="divide" operand="{generalCountVoted}"/}">
+                     </div>
+                  </div>
+                  <div class="pd-raiting-statistic_scale-evaluation_count-voted-wrapper">
+                    <div class="pd-raiting-statistic_scale-evaluation_count-voted">{countVoted}</div>
+                  </div>
+                </div>
+              {/scaleEvaluation}
+
+	         </div>
+        </div>
+
     </script>
 
 
